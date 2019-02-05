@@ -12082,11 +12082,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Projetos\\aspnetcore_teste\\API-com-ASPNET-Core\\APIWithASPNETCore\\APIWithASPNETCore\\APIWithASPNETCore.csproj",
+      "projectUniqueName": "C:\\Projetos\\aspnetcore_teste\\API-com-ASPNET-Core\\APIWithASPNETCore 01 Calculator\\APIWithASPNETCore\\APIWithASPNETCore.csproj",
       "projectName": "APIWithASPNETCore",
-      "projectPath": "C:\\Projetos\\aspnetcore_teste\\API-com-ASPNET-Core\\APIWithASPNETCore\\APIWithASPNETCore\\APIWithASPNETCore.csproj",
+      "projectPath": "C:\\Projetos\\aspnetcore_teste\\API-com-ASPNET-Core\\APIWithASPNETCore 01 Calculator\\APIWithASPNETCore\\APIWithASPNETCore.csproj",
       "packagesPath": "C:\\Users\\rafael.paula\\.nuget\\packages\\",
-      "outputPath": "C:\\Projetos\\aspnetcore_teste\\API-com-ASPNET-Core\\APIWithASPNETCore\\APIWithASPNETCore\\obj\\",
+      "outputPath": "C:\\Projetos\\aspnetcore_teste\\API-com-ASPNET-Core\\APIWithASPNETCore 01 Calculator\\APIWithASPNETCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

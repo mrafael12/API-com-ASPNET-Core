@@ -12,3 +12,17 @@ C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore\APIWithASPNET
 C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.RazorTargetAssemblyInfo.cache
 C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.dll
 C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.pdb
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\bin\Debug\netcoreapp2.2\APIWithASPNETCore.deps.json
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\bin\Debug\netcoreapp2.2\APIWithASPNETCore.runtimeconfig.json
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\bin\Debug\netcoreapp2.2\APIWithASPNETCore.runtimeconfig.dev.json
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\bin\Debug\netcoreapp2.2\APIWithASPNETCore.dll
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\bin\Debug\netcoreapp2.2\APIWithASPNETCore.pdb
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.csprojResolveAssemblyReference.cache
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.csproj.CoreCompileInputs.cache
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.RazorAssemblyInfo.cache
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.RazorAssemblyInfo.cs
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.AssemblyInfoInputs.cache
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.AssemblyInfo.cs
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.RazorTargetAssemblyInfo.cache
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.dll
+C:\Projetos\aspnetcore_teste\API-com-ASPNET-Core\APIWithASPNETCore 01 Calculator\APIWithASPNETCore\obj\Debug\netcoreapp2.2\APIWithASPNETCore.pdb
