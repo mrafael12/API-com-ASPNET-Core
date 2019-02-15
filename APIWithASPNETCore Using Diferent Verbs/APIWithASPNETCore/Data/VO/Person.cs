@@ -1,9 +1,8 @@
-﻿using APIWithASPNETCore.Model.Base;
-
-namespace APIWithASPNETCore.Model
+﻿namespace APIWithASPNETCore.Data.VO
 {
-    public class Person : BaseEntity
-    {        
+    public class PersonVO
+    {
+        public long? Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }

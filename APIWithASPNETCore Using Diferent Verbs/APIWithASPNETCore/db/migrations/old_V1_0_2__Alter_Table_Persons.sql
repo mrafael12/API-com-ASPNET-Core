@@ -1,0 +1,1 @@
+Alter table Persons change ID ID INT(10) auto_increment PRIMARY KEY;
