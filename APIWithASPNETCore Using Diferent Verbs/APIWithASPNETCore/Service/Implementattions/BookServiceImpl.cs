@@ -1,21 +1,27 @@
 ﻿using System.Collections.Generic;
 using APIWithASPNETCore.Model;
 using APIWithASPNETCore.Repository.Generic;
+using APIWithASPNETCore.Data.Converters;
+using APIWithASPNETCore.Data.VO;
 
 namespace APIWithASPNETCore.Service
 {
     public class BookServiceImpl : IBookService
     {
         private IRepository<Book> _repository;
+        private readonly BookConverter _converter;
 
         public BookServiceImpl(IRepository<Book> repository)
         {
             _repository = repository;
+            _converter = new BookConverter();
         }        
 
-        public Book Create(Book book)
-        {            
-            return _repository.Create(book);
+        public BookVO Create(BookVO book)
+        {
+            var bookEntity = _converter.Parse(book);
+            bookEntity = _repository.Create(bookEntity);
+            return _converter.Parse(bookEntity);
         }
 
         public void Delete(long id)
@@ -23,19 +29,21 @@ namespace APIWithASPNETCore.Service
             _repository.Delete(id);
         }
 
-        public List<Book> FindAll()
+        public List<BookVO> FindAll()
         {
-            return _repository.FindAll();
+            return _converter.ParseList(_repository.FindAll());
         }        
 
-        public Book FindById(long id)
+        public BookVO FindById(long id)
         {
-            return _repository.FindById(id);
+            return _converter.Parse(_repository.FindById(id));
         }
 
-        public Book Update(Book book)
+        public BookVO Update(BookVO book)
         {
-            return _repository.Update(book);
+            var bookEntity = _converter.Parse(book);
+            bookEntity = _repository.Update(bookEntity);
+            return _converter.Parse(bookEntity);
         }        
     }
 }

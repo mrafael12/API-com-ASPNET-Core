@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using APIWithASPNETCore.Model;
 using APIWithASPNETCore.Service;
+using APIWithASPNETCore.Data.VO;
 
 namespace APIWithASPNETCore.Controllers
 {
@@ -34,7 +34,7 @@ namespace APIWithASPNETCore.Controllers
 
         // POST api/persons
         [HttpPost()]
-        public IActionResult Post([FromBody] Person person)
+        public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
             return new ObjectResult(_personService.Create(person));
@@ -42,7 +42,7 @@ namespace APIWithASPNETCore.Controllers
 
         // PUT api/values/5
         [HttpPut()]
-        public IActionResult Put([FromBody] Person person)
+        public IActionResult Put([FromBody] PersonVO person)
         {
             if (person == null)
             {

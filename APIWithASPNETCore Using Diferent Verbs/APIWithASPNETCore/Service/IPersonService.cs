@@ -1,14 +1,14 @@
-﻿using APIWithASPNETCore.Model;
+﻿using APIWithASPNETCore.Data.VO;
 using System.Collections.Generic;
 
 namespace APIWithASPNETCore.Service
 {
     public interface IPersonService
     {
-        Person Create(Person person);
-        Person FindById(long id);
-        List<Person> FindAll();
-        Person Update(Person person);
+        PersonVO Create(PersonVO PersonVO);
+        PersonVO FindById(long id);
+        List<PersonVO> FindAll();
+        PersonVO Update(PersonVO PersonVO);
         void Delete(long id);
     }
 }

@@ -60,9 +60,7 @@ namespace APIWithASPNETCore
             //Dependency Injection
             services.AddScoped<IPersonService, PersonServiceImpl>();
             //services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
-
             services.AddScoped<IBookService, BookServiceImpl>();
-
             services.AddScoped(typeof(IRepository<>),typeof(GenericRepository<>));
         }
 

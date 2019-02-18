@@ -1,4 +1,5 @@
-﻿using APIWithASPNETCore.Model;
+﻿using APIWithASPNETCore.Data.VO;
+using APIWithASPNETCore.Model;
 using APIWithASPNETCore.Service;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -38,7 +39,7 @@ namespace APIWithASPNETCore.Controllers
 
         // POST api/books
         [HttpPost()]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
             return new ObjectResult(_bookService.Create(book));            
@@ -46,7 +47,7 @@ namespace APIWithASPNETCore.Controllers
 
         // PUT api/books/5
         [HttpPut()]
-        public IActionResult Put([FromBody] Book book)
+        public IActionResult Put([FromBody] BookVO book)
         {
             if (book == null)
             {

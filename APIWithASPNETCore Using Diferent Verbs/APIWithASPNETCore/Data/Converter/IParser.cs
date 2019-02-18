@@ -8,6 +8,6 @@ namespace APIWithASPNETCore.Data.Converter
     public interface IParser<O, D>
     {
         D Parse(O origin);
-        List<D> ParserList(List<O> origin);
+        List<D> ParseList(List<O> origin);
     }
 }

@@ -44,7 +44,7 @@ namespace APIWithASPNETCore.Data.Converters
             };
         }
 
-        public List<Person> ParserList(List<PersonVO> origin)
+        public List<Person> ParseList(List<PersonVO> origin)
         {
             if (origin == null)
             {
@@ -53,7 +53,7 @@ namespace APIWithASPNETCore.Data.Converters
             return origin.Select(item => Parse(item)).ToList();
         }
 
-        public List<PersonVO> ParserList(List<Person> origin)
+        public List<PersonVO> ParseList(List<Person> origin)
         {
             if (origin == null)
             {
