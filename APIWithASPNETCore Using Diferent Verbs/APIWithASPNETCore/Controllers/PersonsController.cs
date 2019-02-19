@@ -1,13 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using APIWithASPNETCore.Service;
 using APIWithASPNETCore.Data.VO;
+using Tapioca.HATEOAS;
+using System.Collections.Generic;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace APIWithASPNETCore.Controllers
 {
     [ApiVersion("1")]
-    [Route("api/[controller]/v{version:ApiVersion}")]
-    [ApiController]
-    public class PersonsController : ControllerBase
+    [Route("api/[controller]/v{version:ApiVersion}")]    
+    public class PersonsController : Controller
     {
         private IPersonService _personService;
 
@@ -17,14 +19,18 @@ namespace APIWithASPNETCore.Controllers
         }
 
         // GET api/persons
-        [HttpGet()]
+        [HttpGet(Name = "GetPerson")]
+        [ProducesResponseType(201)]
+        [ProducesResponseType(400)]
+        [TypeFilter(typeof(HyperMediaFilter))]        
         public IActionResult Get()
         {
             return Ok(_personService.FindAll());
         }
 
         // GET api/persons/5
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetPersonId")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
             var person = _personService.FindById(id);
@@ -33,15 +39,17 @@ namespace APIWithASPNETCore.Controllers
         }
 
         // POST api/persons
-        [HttpPost()]
+        [HttpPost(Name = "GetPersonPost")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PersonVO person)
         {
             if (person == null) return BadRequest();
-            return new ObjectResult(_personService.Create(person));
+            return new OkObjectResult(_personService.Create(person));
         }
 
         // PUT api/values/5
-        [HttpPut()]
+        [HttpPut(Name = "GetPersonPut")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PersonVO person)
         {
             if (person == null)
@@ -56,11 +64,12 @@ namespace APIWithASPNETCore.Controllers
                 return NoContent();
             }
 
-            return new ObjectResult(updatedPerson);
+            return new OkObjectResult(updatedPerson);
         }
 
         // DELETE api/persons/5
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}", Name = "GetPersonDelete")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(int id)
         {
             _personService.Delete(id);

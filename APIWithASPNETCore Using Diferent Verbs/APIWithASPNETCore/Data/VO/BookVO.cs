@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Tapioca.HATEOAS;
 
 namespace APIWithASPNETCore.Data.VO
 {
-    [DataContract]
-    public class BookVO
+    //[DataContract]
+    public class BookVO : ISupportsHyperMedia
     {
         [DataMember(Order = 1,Name = "codigo")]
         public long? Id { get; set; }
@@ -20,5 +22,7 @@ namespace APIWithASPNETCore.Data.VO
 
         [DataMember(Order = 4)]
         public DateTime LaunchDate { get; set; }
+
+        public List<HyperMediaLink> Links { get; set; } = new List<HyperMediaLink>();
     }
 }
