@@ -1,6 +1,7 @@
 ﻿using APIWithASPNETCore.Data.VO;
 using APIWithASPNETCore.Service;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using Tapioca.HATEOAS;
 
 namespace APIWithASPNETCore.Controllers
@@ -18,6 +19,11 @@ namespace APIWithASPNETCore.Controllers
 
         // GET api/books
         [HttpGet(Name = "GetBook")]
+        [Produces("application/json")]
+        [ProducesResponseType((200), Type = typeof(List<BookVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
@@ -26,6 +32,11 @@ namespace APIWithASPNETCore.Controllers
 
         // GET api/books/5
         [HttpGet("{id}", Name = "GetBookId")]
+        [Produces("application/json")]
+        [ProducesResponseType((200), Type = typeof(BookVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
@@ -36,15 +47,23 @@ namespace APIWithASPNETCore.Controllers
 
         // POST api/books
         [HttpPost(Name = "GetBookPost")]
+        [Produces("application/json")]
+        [ProducesResponseType((201), Type = typeof(BookVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] BookVO book)
         {
             if (book == null) return BadRequest();
-            return new ObjectResult(_bookService.Create(book));            
+            return new OkObjectResult(_bookService.Create(book));            
         }
 
         // PUT api/books/5
         [HttpPut(Name = "GetBookPut")]
+        [Produces("application/json")]
+        [ProducesResponseType((202), Type = typeof(BookVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] BookVO book)
         {
@@ -53,18 +72,22 @@ namespace APIWithASPNETCore.Controllers
                 return BadRequest();
             }
 
-            var updatedPerson = _bookService.Update(book);            
+            var updatedBook = _bookService.Update(book);            
 
-            if (updatedPerson == null)
+            if (updatedBook == null)
             {
                 return NoContent();
             }
 
-            return new ObjectResult(updatedPerson);
+            return new OkObjectResult(updatedBook);
         }
 
         // DELETE api/books/5
         [HttpDelete("{id}", Name = "GetBookDelete")]
+        [Produces("application/json")]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]        
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(int id)
         {

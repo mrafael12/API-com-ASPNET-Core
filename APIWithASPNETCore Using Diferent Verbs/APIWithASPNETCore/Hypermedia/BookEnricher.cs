@@ -8,9 +8,9 @@ using APIWithASPNETCore.Data.VO;
 
 namespace APIWithASPNETCore.Hypermedia
 {
-    public class BookEnricher : ObjectContentResponseEnricher<BookVO>
+    public class BookEnricher : ObjectContentResponseEnricher<PersonVO>
     {
-        protected override Task EnrichModel(BookVO content, IUrlHelper urlHelper)
+        protected override Task EnrichModel(PersonVO content, IUrlHelper urlHelper)
         {
             content.Links.Add(new HyperMediaLink()
             {
