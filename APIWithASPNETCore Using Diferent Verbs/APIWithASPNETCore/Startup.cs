@@ -119,8 +119,15 @@ namespace APIWithASPNETCore
 
             //Dependency Injection
             services.AddScoped<IPersonService, PersonServiceImpl>();
+
+            //Não precisamos fazer mais dessa forma
             //services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
+
+            //Dependency Injection of GenericRepository
+            services.AddScoped<IUserService, UserServiceImpl>();
             services.AddScoped<IBookService, BookServiceImpl>();
+
+            services.AddScoped<IUserRepository, UserRepositoryImpl>();
             services.AddScoped(typeof(IRepository<>),typeof(GenericRepository<>));
         }
 

@@ -8,11 +8,11 @@ using System.Linq;
 
 namespace APIWithASPNETCore.Service
 {
-    public class UserRepostoryImpl : IUserRepository
+    public class UserRepositoryImpl : IUserRepository
     {        
         private readonly MySQLContext _context;
 
-        public UserRepostoryImpl(MySQLContext context)
+        public UserRepositoryImpl(MySQLContext context)
         {
             _context = context;            
         }        

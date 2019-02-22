@@ -1,5 +1,6 @@
 ﻿using APIWithASPNETCore.Data.VO;
 using APIWithASPNETCore.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Tapioca.HATEOAS;
@@ -24,6 +25,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get()
         {
@@ -37,6 +39,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
@@ -51,6 +54,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType((201), Type = typeof(BookVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] BookVO book)
         {
@@ -64,6 +68,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType((202), Type = typeof(BookVO))]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] BookVO book)
         {
@@ -87,7 +92,8 @@ namespace APIWithASPNETCore.Controllers
         [Produces("application/json")]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        [ProducesResponseType(401)]        
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(int id)
         {

@@ -4,6 +4,7 @@ using APIWithASPNETCore.Data.VO;
 using Tapioca.HATEOAS;
 using System.Collections.Generic;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.AspNetCore.Authorization;
 
 namespace APIWithASPNETCore.Controllers
 {
@@ -24,7 +25,8 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType((200), Type = typeof(List<PersonVO>))]        
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
-        [ProducesResponseType(401)]        
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]        
         public IActionResult Get()
         {
@@ -38,6 +40,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Get(int id)
         {
@@ -52,6 +55,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType((201), Type = typeof(PersonVO))]                
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PersonVO person)
         {
@@ -65,6 +69,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType((202), Type = typeof(PersonVO))]        
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PersonVO person)
         {
@@ -89,6 +94,7 @@ namespace APIWithASPNETCore.Controllers
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Delete(int id)
         {

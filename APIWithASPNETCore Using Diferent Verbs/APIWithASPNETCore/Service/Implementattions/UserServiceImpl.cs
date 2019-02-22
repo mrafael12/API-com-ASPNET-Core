@@ -44,6 +44,7 @@ namespace APIWithASPNETCore.Service
                         }
                     
                     );
+
                 DateTime createDate = DateTime.Now;
                 DateTime expirationDate = createDate + TimeSpan.FromSeconds(_tokenConfiguration.Seconds);
 
