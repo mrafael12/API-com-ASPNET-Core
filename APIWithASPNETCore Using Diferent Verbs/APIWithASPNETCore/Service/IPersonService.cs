@@ -7,6 +7,7 @@ namespace APIWithASPNETCore.Service
     {
         PersonVO Create(PersonVO PersonVO);
         PersonVO FindById(long id);
+        List<PersonVO> FindByName(string firstName, string lastName);
         List<PersonVO> FindAll();
         PersonVO Update(PersonVO PersonVO);
         void Delete(long id);

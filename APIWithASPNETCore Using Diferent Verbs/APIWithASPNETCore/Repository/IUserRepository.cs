@@ -5,6 +5,7 @@ namespace APIWithASPNETCore.Repository.Generic
 {
     public interface IUserRepository
     {                
-        User FindByLogin(string login);             
+        User FindByLogin(string login);
+        User Create(User user);
     }
 }

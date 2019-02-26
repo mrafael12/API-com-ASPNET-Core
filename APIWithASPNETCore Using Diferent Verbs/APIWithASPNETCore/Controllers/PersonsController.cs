@@ -49,6 +49,20 @@ namespace APIWithASPNETCore.Controllers
             return Ok(person);
         }
 
+        // GET api/persons/5
+        [HttpGet("find-by-name")]
+        [Produces("application/json")]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetByName([FromQuery] string firstName, [FromQuery] string lastName)
+        {
+            return Ok(_personService.FindByName(firstName,lastName));
+        }
+
         // POST api/persons
         [HttpPost(Name = "GetPersonPost")]
         [Produces("application/json")]
@@ -72,6 +86,31 @@ namespace APIWithASPNETCore.Controllers
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Put([FromBody] PersonVO person)
+        {
+            if (person == null)
+            {
+                return BadRequest();
+            }
+
+            var updatedPerson = _personService.Update(person);
+
+            if (updatedPerson == null)
+            {
+                return NoContent();
+            }
+
+            return new OkObjectResult(updatedPerson);
+        }
+
+        // PATCH api/values/5
+        [HttpPatch(Name = "GetPersonPatch")]
+        [Produces("application/json")]
+        [ProducesResponseType((202), Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Patch([FromBody] PersonVO person)
         {
             if (person == null)
             {

@@ -14,10 +14,10 @@ namespace APIWithASPNETCore.Service
 {
     public class PersonServiceImpl : IPersonService
     {
-        private IRepository<Person> _repository;
+        private IPersonRepository _repository;
         private readonly PersonConverter _converter;
 
-        public PersonServiceImpl(IRepository<Person> repository)
+        public PersonServiceImpl(IPersonRepository repository)
         {
             _repository = repository;
             _converter = new PersonConverter();
@@ -38,7 +38,12 @@ namespace APIWithASPNETCore.Service
         public List<PersonVO> FindAll()
         {
             return _converter.ParseList(_repository.FindAll());
-        }        
+        }
+
+        public List<PersonVO> FindByName(string firstName, string lastName)
+        {
+            return _converter.ParseList(_repository.FindByName(firstName,lastName));            
+        }
 
         public PersonVO FindById(long id)
         {

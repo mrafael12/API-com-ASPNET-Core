@@ -24,13 +24,19 @@ namespace APIWithASPNETCore.Service
             _tokenConfiguration = tokenConfiguration;
         }
 
-        public object FindByLogin(User user)
+        public User Create(User user)
+        {
+           return _repository.Create(user);
+        }
+
+        public object FindByLogin(UserVO user)
         {
             bool credentialIsValid = false;
             if(user != null && !string.IsNullOrWhiteSpace(user.Login))
             {
                 var baseUser = _repository.FindByLogin(user.Login);
-                credentialIsValid = (baseUser != null && user.Login == baseUser.Login && user.AccessKey == baseUser.AccessKey);
+                var accessEncrypted = MD5Crypt.Criptografar(user.AccessKey);
+                credentialIsValid = (baseUser != null && user.Login == baseUser.Login && accessEncrypted == baseUser.AccessKey);
             }
 
             if(credentialIsValid)

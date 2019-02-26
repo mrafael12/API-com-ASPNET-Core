@@ -1,9 +1,11 @@
-﻿using APIWithASPNETCore.Model;
+﻿using APIWithASPNETCore.Data.VO;
+using APIWithASPNETCore.Model;
 
 namespace APIWithASPNETCore.Service
 {
     public interface IUserService
-    {        
-        object FindByLogin(User user);        
+    {
+        User Create(User user);
+        object FindByLogin(UserVO user);        
     }
 }

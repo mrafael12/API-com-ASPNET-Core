@@ -2,6 +2,7 @@
 using APIWithASPNETCore.Service;
 using Microsoft.AspNetCore.Authorization;
 using APIWithASPNETCore.Model;
+using APIWithASPNETCore.Data.VO;
 
 namespace APIWithASPNETCore.Controllers
 {
@@ -19,10 +20,23 @@ namespace APIWithASPNETCore.Controllers
         // POST api/persons
         [AllowAnonymous]
         [HttpPost]        
-        public object Post([FromBody] User user)
+        public object Post([FromBody] UserVO user)
         {
             if (user == null) return BadRequest();
             return _userService.FindByLogin(user);
-        }        
+        }
+
+        // POST api/user
+        [AllowAnonymous]
+        [HttpPost("save")]
+        [Produces("application/json")]        
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        //[Authorize("Bearer")]        
+        public IActionResult Save([FromBody] User user)
+        {
+            if (user == null) return BadRequest();
+            return new OkObjectResult(_userService.Create(user));
+        }
     }
 }

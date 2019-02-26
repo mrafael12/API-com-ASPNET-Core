@@ -128,6 +128,7 @@ namespace APIWithASPNETCore
             services.AddScoped<IBookService, BookServiceImpl>();
 
             services.AddScoped<IUserRepository, UserRepositoryImpl>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
             services.AddScoped(typeof(IRepository<>),typeof(GenericRepository<>));
         }
 
