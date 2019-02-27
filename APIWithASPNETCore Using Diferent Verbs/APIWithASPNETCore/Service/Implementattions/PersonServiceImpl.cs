@@ -9,6 +9,7 @@ using APIWithASPNETCore.Repository;
 using APIWithASPNETCore.Repository.Generic;
 using APIWithASPNETCore.Data.Converters;
 using APIWithASPNETCore.Data.VO;
+using Tapioca.HATEOAS.Utils;
 
 namespace APIWithASPNETCore.Service
 {
@@ -56,5 +57,37 @@ namespace APIWithASPNETCore.Service
             personEntity = _repository.Update(personEntity);
             return _converter.Parse(personEntity);
         }        
+
+        public PagedSearchDTO<PersonVO> FindWidthPagedSearch(string name, string sortDirection, int pageSize, int page)
+        {
+            string query = @"Select * from Person p where 1 = 1 ";
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query + $" and p.name like '%{name}%'";
+            }
+                  
+            query = query + $" order by p.name {sortDirection} limit {pageSize} offset {page} ";
+
+
+            string countQuery = @"Select count(*) from Person p where 1 = 1 ";
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                countQuery = countQuery + $" and p.name like '%{name}%'";
+            }
+
+            var persons = _converter.ParseList(_repository.FindWidthPagedSearch(query));
+            int totalResults = _repository.GetCount(countQuery);
+
+            return new PagedSearchDTO<PersonVO>
+            {
+                CurrentPage = page,
+                List = persons,
+                PageSize = pageSize,
+                SortDirections = sortDirection,
+                TotalResults = totalResults
+            };
+        }
     }
 }

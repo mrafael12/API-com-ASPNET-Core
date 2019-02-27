@@ -49,7 +49,7 @@ namespace APIWithASPNETCore.Controllers
             return Ok(person);
         }
 
-        // GET api/persons/5
+        // GET api/find-by-name?FirstName=marcos?LastName=rafael
         [HttpGet("find-by-name")]
         [Produces("application/json")]
         [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
@@ -62,6 +62,21 @@ namespace APIWithASPNETCore.Controllers
         {
             return Ok(_personService.FindByName(firstName,lastName));
         }
+
+        // GET api/find-by-name?FirstName=marcos?LastName=rafael
+        [HttpGet("find-with-paged-search/{sortDirection}/{pageSize}/{page}")]
+        [Produces("application/json")]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetPagedSearch([FromQuery] string name, [FromQuery] string sortDirection, [FromQuery] int pageSize, [FromQuery] int page)
+        {
+            return Ok(_personService.FindWidthPagedSearch(name, sortDirection, pageSize, page));
+        }
+
 
         // POST api/persons
         [HttpPost(Name = "GetPersonPost")]

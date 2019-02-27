@@ -13,6 +13,8 @@ namespace APIWithASPNETCore.Repository.Generic
         List<T> FindAll();
         T Update(T item);
         void Delete(long id);
-        bool Exists(long? id);       
+        bool Exists(long? id);
+        List<T> FindWidthPagedSearch(string query);
+        int GetCount(string query);
     }
 }
