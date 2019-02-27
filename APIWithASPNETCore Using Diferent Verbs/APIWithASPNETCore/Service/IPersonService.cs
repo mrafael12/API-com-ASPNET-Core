@@ -13,6 +13,6 @@ namespace APIWithASPNETCore.Service
         List<PersonVO> FindAll();
         PersonVO Update(PersonVO PersonVO);
         void Delete(long id);
-        PagedSearchDTO<PersonVO> FindWidthPagedSearch(string name, string sortDirection, int pageSize, int page)
+        PagedSearchDTO<PersonVO> FindWidthPagedSearch(string name, string sortDirection, int pageSize, int page);
     }
 }

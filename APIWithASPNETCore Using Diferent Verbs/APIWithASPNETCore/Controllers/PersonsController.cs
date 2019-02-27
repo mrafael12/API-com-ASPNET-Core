@@ -47,36 +47,7 @@ namespace APIWithASPNETCore.Controllers
             var person = _personService.FindById(id);
             if (person == null) return NotFound();
             return Ok(person);
-        }
-
-        // GET api/find-by-name?FirstName=marcos?LastName=rafael
-        [HttpGet("find-by-name")]
-        [Produces("application/json")]
-        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(401)]
-        [Authorize("Bearer")]
-        [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult GetByName([FromQuery] string firstName, [FromQuery] string lastName)
-        {
-            return Ok(_personService.FindByName(firstName,lastName));
-        }
-
-        // GET api/find-by-name?FirstName=marcos?LastName=rafael
-        [HttpGet("find-with-paged-search/{sortDirection}/{pageSize}/{page}")]
-        [Produces("application/json")]
-        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(401)]
-        [Authorize("Bearer")]
-        [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult GetPagedSearch([FromQuery] string name, [FromQuery] string sortDirection, [FromQuery] int pageSize, [FromQuery] int page)
-        {
-            return Ok(_personService.FindWidthPagedSearch(name, sortDirection, pageSize, page));
-        }
-
+        }        
 
         // POST api/persons
         [HttpPost(Name = "GetPersonPost")]
@@ -115,6 +86,20 @@ namespace APIWithASPNETCore.Controllers
             }
 
             return new OkObjectResult(updatedPerson);
+        }        
+
+        // DELETE api/persons/5
+        [HttpDelete("{id}", Name = "GetPersonDelete")]
+        [Produces("application/json")]        
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Delete(int id)
+        {
+            _personService.Delete(id);
+            return NoContent();
         }
 
         // PATCH api/values/5
@@ -142,18 +127,32 @@ namespace APIWithASPNETCore.Controllers
             return new OkObjectResult(updatedPerson);
         }
 
-        // DELETE api/persons/5
-        [HttpDelete("{id}", Name = "GetPersonDelete")]
-        [Produces("application/json")]        
+        // GET api/find-by-name?FirstName=marcos?LastName=rafael
+        [HttpGet("find-by-name")]
+        [Produces("application/json")]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         [ProducesResponseType(401)]
         [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
-        public IActionResult Delete(int id)
+        public IActionResult GetByName([FromQuery] string firstName, [FromQuery] string lastName)
         {
-            _personService.Delete(id);
-            return NoContent();
+            return Ok(_personService.FindByName(firstName, lastName));
+        }
+
+        // GET api/find-by-name?FirstName=marcos?LastName=rafael
+        [HttpGet("find-with-paged-search/{sortDirection}/{pageSize}/{page}")]
+        [Produces("application/json")]
+        [ProducesResponseType((200), Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult GetPagedSearch([FromQuery] string name, string sortDirection, int pageSize, int page)
+        {
+            return Ok(_personService.FindWidthPagedSearch(name, sortDirection, pageSize, page));
         }
     }
 }
