@@ -1,0 +1,174 @@
+{
+	"id": "4d4af990-2e78-fdab-7c02-5f522de33697",
+	"name": "AspNetCore",
+	"description": "",
+	"order": [
+		"22deeb4b-fe7c-4621-58a8-2afde9a32352",
+		"fe761bc6-65fc-38b5-b7dd-5f9517116372",
+		"d7e48f18-f72d-9720-c15b-4339bf9e453e",
+		"72d8b041-aad7-16b9-1c37-016e4866013f"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1550839280234,
+	"owner": "2516400",
+	"public": false,
+	"requests": [
+		{
+			"id": "22deeb4b-fe7c-4621-58a8-2afde9a32352",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3377/api/user/v1/",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "if(responseCode.code >= 200 && responseCode.code <= 299) {\n    var jsonData = JSON.parse(responseBody);\n    postman.setEnvironmentVariable('bearer_token', jsonData.accessToken);\n}",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1551095811296,
+			"name": "http://localhost:3377/api/users/v1/",
+			"description": "",
+			"collectionId": "4d4af990-2e78-fdab-7c02-5f522de33697",
+			"responses": [],
+			"rawModeData": "{\n\t\"Login\": \"{{user}}\",\n\t\"AccessKey\": \"{{password}}\"\n}"
+		},
+		{
+			"id": "72d8b041-aad7-16b9-1c37-016e4866013f",
+			"headers": "Content-Type: application/json\n//Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJyYWZhZWwucGF1bGEiLCJyYWZhZWwucGF1bGEiXSwianRpIjoiM2Q3NmYxNWE3NjQ2NGQ0N2E5MTY3NDkzMDhmM2QwYTIiLCJuYmYiOjE1NTA4NjUwMjEsImV4cCI6MTU1MDg2NjIyMSwiaWF0IjoxNTUwODY1MDIxLCJpc3MiOiJFeGVtcGxlSXNzdWVyIiwiYXVkIjoiRXhlbXBsZUF1ZGllbmNlIn0.i-PRxjQi8nMGl8QFmaUQzbP9mb18tLZG6T7ei3waw2yhWOCsHv5qYPAUagvN4rwiF77nxDe_QhA-zrqo8fKE_VbKGZIfjemo0W4ndkKiKhoPVGKlJ_7xP4lYsOOj7VBtUiOckSM2nF8bkVJDDTuzLSqLyXIXQYtOzM-HysotPQ5jynVyWLJs0T8ByoqlwwwIaA1SOoFys1X2w5boFquhDL2bL5ZmCbk9uA5Qi8AgApuBmD2fUTOGeFaE0PndKstVulIjq0HABeNDmAbMJmun9iUGMKWLVvI2oe8hcT4Z29Jqz3royjtkz4imi3-Kz2L0hL4SaIw3n1LDtsJxORjwjw\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6WyJyYWZhZWwucGF1bGEiLCJyYWZhZWwucGF1bGEiXSwianRpIjoiM2Q3NmYxNWE3NjQ2NGQ0N2E5MTY3NDkzMDhmM2QwYTIiLCJuYmYiOjE1NTA4NjUwMjEsImV4cCI6MTU1MDg2NjIyMSwiaWF0IjoxNTUwODY1MDIxLCJpc3MiOiJFeGVtcGxlSXNzdWVyIiwiYXVkIjoiRXhlbXBsZUF1ZGllbmNlIn0.i-PRxjQi8nMGl8QFmaUQzbP9mb18tLZG6T7ei3waw2yhWOCsHv5qYPAUagvN4rwiF77nxDe_QhA-zrqo8fKE_VbKGZIfjemo0W4ndkKiKhoPVGKlJ_7xP4lYsOOj7VBtUiOckSM2nF8bkVJDDTuzLSqLyXIXQYtOzM-HysotPQ5jynVyWLJs0T8ByoqlwwwIaA1SOoFys1X2w5boFquhDL2bL5ZmCbk9uA5Qi8AgApuBmD2fUTOGeFaE0PndKstVulIjq0HABeNDmAbMJmun9iUGMKWLVvI2oe8hcT4Z29Jqz3royjtkz4imi3-Kz2L0hL4SaIw3n1LDtsJxORjwjw",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "http://localhost:3377/api/user/v1/save",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "4d4af990-2e78-fdab-7c02-5f522de33697",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:3377/api/user/v1/save",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1551095833444,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"Login\": \"lucas.ricarte\",\n\t\"AccessKey\": \"admin123\"\n}"
+		},
+		{
+			"id": "d7e48f18-f72d-9720-c15b-4339bf9e453e",
+			"headers": "Authorization: Bearer {{bearer_token}}\nContent-Type: application/json\n//Accept: text/xml,application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer {{bearer_token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "text/xml,application/json",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "http://localhost:3377/api/persons/v1/find-by-name?firstName=rafael",
+			"queryParams": [
+				{
+					"key": "firstName",
+					"value": "rafael",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1551182266614,
+			"name": "http://localhost:3377/api/persons/v1/find-by-name",
+			"description": "",
+			"collectionId": "4d4af990-2e78-fdab-7c02-5f522de33697",
+			"responses": [],
+			"rawModeData": "{\n\t\"id\": 1,\n\t\"FirstName\": \"Marco\",\n\t\"LastName\": \"Paula\",\n\t\"Address\": \"Fortaleza - Ceara\",\n\t\"Gender\": \"Male\"\n}"
+		},
+		{
+			"id": "fe761bc6-65fc-38b5-b7dd-5f9517116372",
+			"headers": "Authorization: Bearer {{bearer_token}}\nContent-Type: application/json\n//Accept: text/xml,application/json\n",
+			"headerData": [
+				{
+					"key": "Authorization",
+					"value": "Bearer {{bearer_token}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Accept",
+					"value": "text/xml,application/json",
+					"description": "",
+					"enabled": false
+				}
+			],
+			"url": "http://localhost:3377/api/persons/v1",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "PATCH",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1551181658531,
+			"name": "http://localhost:3377/api/persons/v1",
+			"description": "",
+			"collectionId": "4d4af990-2e78-fdab-7c02-5f522de33697",
+			"responses": [],
+			"rawModeData": "{\n\t\"id\": 1,\n\t\"FirstName\": \"Marcos\",\n\t\"LastName\": \"Paula\",\n\t\"Address\": \"Fortaleza - Ceara\",\n\t\"Gender\": \"Male\"\n}"
+		}
+	]
+}
