@@ -59,6 +59,9 @@ namespace APIWithASPNETCore.Controllers
         [TypeFilter(typeof(HyperMediaFilter))]
         public IActionResult Post([FromBody] PersonVO person)
         {
+            //Obtém o id do usuário a partir disso basta fazermos log, auditoria, etc.
+            var userName = User.Identity.Name;
+
             if (person == null) return BadRequest();
             return new OkObjectResult(_personService.Create(person));
         }

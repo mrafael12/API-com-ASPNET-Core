@@ -1,7 +1,9 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIWithASPNETCore.Model
 {
+    [Table("users")]
     public class User
     {
         public long? Id { get; set; }

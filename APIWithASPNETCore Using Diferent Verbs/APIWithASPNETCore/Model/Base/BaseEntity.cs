@@ -1,10 +1,11 @@
-﻿using System.Runtime.Serialization;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIWithASPNETCore.Model.Base
 {
-    //[DataContract]
+    //[DataContract]    
     public class BaseEntity
-    {     
+    {
+        [Column("id")]
         public long? Id { get; set; }
     }
 }
